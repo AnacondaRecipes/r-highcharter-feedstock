@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: highcharter_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/highcharter_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/highcharter/highcharter_{{ version }}.tar.gz
@@ -27,6 +26,7 @@ build:
 # Suggests: knitr, rmarkdown, survival, ggplot2, httr, viridisLite
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
